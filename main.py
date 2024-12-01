@@ -12,6 +12,7 @@ class MyWidget(QMainWindow, QDialog):
     def __init__(self):
         super().__init__()
         uic.loadUi('UI.ui', self)
+
         self.do_paint = False
         self.circles = []
         self.create.clicked.connect(self.paint)
