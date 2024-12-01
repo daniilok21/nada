@@ -31,7 +31,6 @@ class MyWidget(QMainWindow, Ui_Dialog):
         self.setupUi(self)
         self.do_paint = False
         self.circles = []
-        self.colors = []
         self.create.clicked.connect(self.paint)
 
     def paintEvent(self, event):
@@ -47,13 +46,10 @@ class MyWidget(QMainWindow, Ui_Dialog):
         self.update()
 
     def draw_flag(self, qp):
-        color = (randint(0, 255), randint(0, 255), randint(0, 255))
-        self.colors.append(color)
-        self.circles.append((randint(0, 800), randint(0, 800), randint(0, 400)))
-        for i in range(len(self.circles)):
-            qp.setBrush(QColor(*self.colors[i]))
-            qp.drawEllipse(self.circles[i][0], self.circles[i][1], self.circles[i][2], self.circles[i][2])
-
+        qp.setBrush(QColor(255, 255, 0))
+        self.circles.append((randint(0, 800),randint(0, 800), randint(0, 400)))
+        for i in self.circles:
+            qp.drawEllipse(i[0], i[1], i[2], i[2])
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
