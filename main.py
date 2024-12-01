@@ -29,7 +29,7 @@ class MyWidget(QMainWindow, QDialog):
 
     def draw_flag(self, qp):
         qp.setBrush(QColor(255, 255, 0))
-        self.circles.append((randint(0, 800),randint(0, 800), randint(0, 800)))
+        self.circles.append((randint(0, 800),randint(0, 800), randint(0, 400)))
         for i in self.circles:
             qp.drawEllipse(i[0], i[1], i[2], i[2])
 
